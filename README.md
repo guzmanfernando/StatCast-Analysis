@@ -47,3 +47,8 @@ hard_hit_percentage             : -0.66 ft / %
 * **Machine Learning:** Scikit-Learn (`LinearRegression`, `train_test_split`, `metrics`)
 
 ---
+
+## 💡 Key Lessons Learned & Future Work
+
+* Data Granularity Dictates Model Selection: An initial plan to use XGBoost to classify individual home runs was pivoted to Multi-Linear Regression upon recognizing that the dataset consisted of season-level averages rather than pitch-by-pitch event data.
+* Future Work: Ingest pitch-level StatCast events (spray angle, pitch velocity, park factors) to build non-linear gradient-boosted classification models for discrete outcomes $(P(HR))$.
