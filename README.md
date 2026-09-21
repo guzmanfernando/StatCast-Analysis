@@ -21,3 +21,29 @@ Using aggregated StatCast data across **1,918 player-seasons** (filtered for $\t
 ---
 
 ## 📊 Feature Importance & Marginal Impact
+
+```text
+Linear Regression Feature Coefficients:
+-------------------------------------------------------
+ev_avg                          : +3.32 ft / mph
+la_avg                          : +3.22 ft / degree
+barrels_batted_balls_percentage : +1.12 ft / %
+hard_hit_percentage             : -0.66 ft / %
+-------------------------------------------------------
+```
+### Core Analytical Insights
+1. **Exit Velocity vs. Launch Angle:** Holding other features constant, a $1\text{ mph}$ increase in average Exit Velocity increases distance by **$3.32\text{ ft}$**, while a $1^\circ$ increase in average Launch Angle adds **$3.22\text{ ft}$**.
+2. **The Hard-Hit Paradox:** Controlling for `barrels_batted_balls_percentage`, raw `hard_hit_percentage` exhibits a negative coefficient ($-0.66\text{ ft}$). Hard contact hit at suboptimal launch angles (e.g., hard ground balls) suppresses total average distance.
+
+---
+
+## 🛠️ Project Architecture & Workflow
+
+[Raw StatCast Data] ➔ [Data Filtering (BBE > 100)] ➔ [Mean Imputation] ➔ [80/20 Train-Test Split] ➔ [Scikit-Learn Regression] ➔ [Model Evaluation & XAI]
+
+### Tech Stack
+* **Language:** Python
+* **Data Processing & EDA:** Pandas, NumPy, Seaborn, Matplotlib
+* **Machine Learning:** Scikit-Learn (`LinearRegression`, `train_test_split`, `metrics`)
+
+---
